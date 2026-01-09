@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCompany Ventures</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link rel="mask-icon" href="/images/favicon_mask.svg" color="#E28942">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+</head>
+
+<body>
+
+    <header class="row">
+        <img src="/images/logo.svg" id="header-logo" alt="Company Logo"
+            style="height: 57px; width: auto; display: block;">
+        <span class="label">PREVIEW</span>
+    </header>
+
+    <hr />
+
+    <main>
+        <!-- Hero Section -->
+        <h1 class="hero-headline">Next-Generation Intelligence Infrastructure</h1>
+        <p class="sub-headline">We are an applied research and software deployment company building the proprietary
+            compute layer for vertical AI agents.</p>
+
+        <!-- Technical Description (Moved up since terminal is gone) -->
+        <p><strong id="name-body">MyCompany</strong> is developing a closed-source, event-driven architecture designed
+            to eliminate latency in complex data pipelines. Our core technology abstracts the infrastructure layer,
+            allowing for the rapid deployment of autonomous agents without the overhead of traditional SaaS stacks.</p>
+
+        <!-- Principles Grid -->
+        <div class="principles-grid">
+            <div class="principle-item">
+                <h3>Security First</h3>
+                <p>Zero-trust architecture baked into the ingestion layer.</p>
+            </div>
+            <div class="principle-item">
+                <h3>API Native</h3>
+                <p>Built for programmatic control and headless integration.</p>
+            </div>
+            <div class="principle-item">
+                <h3>Scalable</h3>
+                <p>Proprietary load balancing for high-availability inference.</p>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact">
+            <span class="label">INQUIRIES</span>
+            <p>For partnership opportunities or information regarding our technology:</p>
+
+            <div class="email-row">
+                <canvas id="email-canvas"></canvas>
+                <button id="copy-btn" type="button" aria-label="Copy Email">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="row footer">
+        <div>
+            <div id="copyright-text"></div>
+            <div id="address-container"></div>
+        </div>
+        <nav>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+        </nav>
+    </footer>
+
+    <script src="config.js"></script>
+    <script>
+        (function () {
+            const cfg = window.SiteConfig || { companyName: "MyCompany LLC", address: "490 Post St.\nSan Francisco, CA", emailUser: "hello", domain: "example.com" };
+
+            document.title = cfg.companyName;
+            const logo = document.getElementById("header-logo");
+            if (logo) logo.alt = cfg.companyName;
+            const nameBody = document.getElementById("name-body");
+            if (nameBody) nameBody.innerText = cfg.companyName;
+            const copyText = document.getElementById("copyright-text");
+            if (copyText) copyText.innerHTML = "&copy; " + new Date().getFullYear() + " " + cfg.companyName;
+            const addrContainer = document.getElementById("address-container");
+            if (addrContainer) addrContainer.innerText = cfg.address;
+
+            const fullEmail = cfg.emailUser + "@" + cfg.domain;
+            const canvas = document.getElementById("email-canvas");
+
+            if (canvas) {
+                const ctx = canvas.getContext("2d");
+                const copyBtn = document.getElementById("copy-btn");
+                document.fonts.ready.then(function () {
+                    const dpr = window.devicePixelRatio || 1;
+                    const fontSize = 15;
+                    const fontSettings = "400 " + fontSize + "px Inter, sans-serif";
+                    ctx.font = fontSettings;
+                    const width = ctx.measureText(fullEmail).width;
+                    const height = 24;
+                    canvas.width = width * dpr;
+                    canvas.height = height * dpr;
+                    canvas.style.width = width + "px";
+                    canvas.style.height = height + "px";
+                    ctx.scale(dpr, dpr);
+                    ctx.font = fontSettings;
+                    ctx.fillStyle = "#000000";
+                    ctx.textBaseline = "middle";
+                    ctx.fillText(fullEmail, 0, height / 2);
+                });
+                if (copyBtn) {
+                    copyBtn.onclick = () => {
+                        navigator.clipboard.writeText(fullEmail);
+                        copyBtn.style.opacity = "0.3";
+                        setTimeout(() => { copyBtn.style.opacity = "1"; }, 200);
+                    };
+                }
+            }
+        })();
+    </script>
+</body>
+
+</html>

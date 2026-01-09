@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- 1. Standard Modern Browsers -->
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+
+    <!-- 2. Safari Pinned Tabs -->
+    <!-- Uses the black SVG mask, color is applied by the browser -->
+    <link rel="mask-icon" href="/images/favicon_mask.svg" color="#E28942">
+
+    <!-- 3. iOS (iPhone/iPad) & Android -->
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+</head>
+
+<body>
+
+    <header>
+        <h1>Terms of Use</h1>
+        <span class="meta">Effective Date: January 14, 2026</span>
+    </header>
+
+    <main>
+        <p>Please read these Terms of Use ("Terms", "Terms of Use") carefully before using the website operated by
+            <strong class="company-name">The Company</strong> ("us", "we", or "our").</p>
+
+        <h2>1. Acceptance of Terms</h2>
+        <p>By accessing or using this website, you agree to be bound by these Terms. If you disagree with any part of
+            the terms, you may not access the website.</p>
+
+        <h2>2. Intellectual Property</h2>
+        <p>The Service and its original content, features, and functionality are and will remain the exclusive property
+            of <span class="company-name">The Company</span> and its licensors. This includes, without limitation, all
+            proprietary software, algorithms, code, datasets, designs, and text. The Service is protected by copyright,
+            trademark, and other laws of both the United States and foreign countries.</p>
+
+        <h2>3. Prohibited Uses</h2>
+        <p>You agree not to use the website or its content:</p>
+        <ul>
+            <li>For any unlawful purpose or to solicit others to perform or participate in any unlawful acts.</li>
+            <li>To attempt to reverse engineer, decompile, or disassemble any portion of our proprietary technology.
+            </li>
+            <li>To scrape, collect, or harvest data from our website without our express written consent.</li>
+        </ul>
+
+        <h2>4. Links to Other Web Sites</h2>
+        <p>Our Service may contain links to third-party web sites or services (such as GitHub, LinkedIn, or partner
+            portals) that are not owned or controlled by <span class="company-name">The Company</span>.</p>
+        <p>We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any
+            third-party web sites or services. You acknowledge and agree that we shall not be responsible or liable,
+            directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use
+            of such content or services.</p>
+
+        <h2>5. Limitation of Liability</h2>
+        <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL <span class="company-name"
+                style="text-transform: uppercase;">THE COMPANY</span>, NOR ITS DIRECTORS, EMPLOYEES, PARTNERS, AGENTS,
+            SUPPLIERS, OR AFFILIATES, BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE
+            DAMAGES, INCLUDING WITHOUT LIMITATION, LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES,
+            RESULTING FROM (I) YOUR ACCESS TO OR USE OF OR INABILITY TO ACCESS OR USE THE SERVICE; OR (II) ANY
+            UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION STORED THEREIN.
+        </p>
+
+        <h2>6. Disclaimer</h2>
+        <p>Your use of the Service is at your sole risk. The Service is provided on an "AS IS" and "AS AVAILABLE" basis.
+            The Service is provided without warranties of any kind, whether express or implied, including, but not
+            limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement, or
+            course of performance.</p>
+
+        <h2>7. Governing Law</h2>
+        <p>These Terms shall be governed and construed in accordance with the laws of the State of Delaware, United
+            States, without regard to its conflict of law provisions.</p>
+
+        <h2>8. Changes</h2>
+        <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. By continuing to
+            access or use our Service after those revisions become effective, you agree to be bound by the revised
+            terms.</p>
+
+        <p style="margin-top: 60px;">
+            <a href="index.html" style="font-size: 14px; text-decoration: none;">&larr; Back to Home</a>
+        </p>
+    </main>
+
+    <script src="config.js"></script>
+    <script>
+        // Ensure config is loaded before running
+        if (window.SiteConfig) {
+            const cfg = window.SiteConfig;
+
+            // Update all placeholders
+            document.querySelectorAll('.company-name').forEach(el => el.innerText = cfg.companyName);
+
+            document.title = "Terms of Use | " + cfg.companyName;
+        } else {
+            console.error("SiteConfig not found in config.js");
+        }
+    </script>
+</body>
+
+</html>

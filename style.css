@@ -1,0 +1,290 @@
+:root {
+    --black: #000000;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    font: 400 15px/1.6 'Inter', sans-serif;
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+h2 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 2.5rem 0 1rem 0;
+}
+
+p {
+    margin: 0 0 1.5rem 0;
+}
+
+strong {
+    font-weight: 600;
+}
+
+a {
+    color: var(--black);
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul {
+    padding-left: 1rem;
+    margin: 0 0 1.5rem 0;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+/* Utilities */
+.meta {
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 3rem;
+}
+
+.label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+}
+
+/* Layout & Components */
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+hr {
+    border: 0;
+    border-bottom: 1px solid var(--black);
+    margin: 1.5rem 0 2.5rem;
+}
+
+/* Header & Logo Specifics */
+header.row {
+    align-items: center;
+}
+
+.branding {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 28px;
+    height: auto;
+    display: block;
+}
+
+/* Contact Section */
+.contact {
+    margin-top: 4rem;
+}
+
+.contact .label {
+    margin-bottom: 0.5rem;
+}
+
+.contact p {
+    margin-bottom: 0.5rem;
+}
+
+.email-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 24px;
+}
+
+#copy-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+#copy-btn:hover {
+    opacity: 1;
+}
+
+/* Footer */
+.footer {
+    margin-top: 5rem;
+    border-top: 1px solid var(--black);
+    padding-top: 1.5rem;
+    font-size: 13px;
+}
+
+#address-container {
+    white-space: pre-wrap;
+    margin-top: 0.5rem;
+}
+
+.footer nav a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+}
+
+.footer nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   STEALTH / PRODUCT STYLES
+   ========================================= */
+
+/* Hero Typography Overrides */
+.hero-headline {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+.sub-headline {
+    font-size: 1.05rem;
+    color: #444;
+    margin-bottom: 2.5rem;
+}
+
+/* Terminal Window - LIGHT MODE (White Background) */
+.terminal-window {
+    background: #ffffff;
+    /* Subtle border to define edges against the white page */
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin: 2rem 0 3.5rem 0;
+    overflow: hidden;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+.terminal-header {
+    background: #f9f9f9;
+    /* Very light gray to distinguish header */
+    padding: 10px 12px;
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.red {
+    background: #ff5f56;
+}
+
+.yellow {
+    background: #ffbd2e;
+}
+
+.green {
+    background: #27c93f;
+}
+
+.terminal-body {
+    padding: 20px;
+    color: #333333;
+    /* Dark gray text for readability */
+    line-height: 1.6;
+}
+
+.cmd {
+    color: #999;
+    margin-right: 8px;
+    user-select: none;
+}
+
+.success {
+    color: #059669;
+    font-weight: 500;
+}
+
+.cursor {
+    display: inline-block;
+    width: 7px;
+    height: 14px;
+    background: #333;
+    animation: blink 1s infinite;
+    vertical-align: middle;
+    margin-left: 4px;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Principles Grid */
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2rem;
+    margin: 3.5rem 0;
+    padding: 2rem 0;
+    border-top: 1px solid var(--black);
+    border-bottom: 1px solid var(--black);
+}
+
+.principle-item h3 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.5rem 0;
+}
+
+.principle-item p {
+    font-size: 0.9rem;
+    color: #444;
+    margin: 0;
+    line-height: 1.5;
+}
