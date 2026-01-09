@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology & Research</title> <!-- JS will prepend Company Name here -->
+    <meta name="description" content="Developing proprietary SaaS solutions and automation infrastructure.">
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #666666;
+            --bg: #ffffff;
+            --accent: #0066cc;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            background-color: var(--bg);
+        }
+        header { margin-bottom: 60px; border-bottom: 1px solid #eaeaea; padding-bottom: 20px; }
+        h1 { font-size: 24px; font-weight: 700; letter-spacing: -0.5px; margin: 0; }
+        .tagline { font-size: 18px; color: var(--secondary); margin-top: 10px; font-weight: 400; }
+        .content { margin-bottom: 80px; }
+        p { margin-bottom: 20px; }
+        .contact-box {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+        a { color: var(--primary); text-decoration: none; border-bottom: 1px solid #ccc; transition: all 0.2s; }
+        a:hover { border-bottom-color: var(--primary); }
+        /* Style for the obfuscated link */
+        #email-protect { color: var(--accent); cursor: pointer; }
+        footer { font-size: 12px; color: #999; border-top: 1px solid #eaeaea; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- The ID allows JS to inject the name -->
+        <h1 id="name-header">Loading...</h1>
+        <div class="tagline">Infrastructure for the Next Generation of SaaS</div>
+    </header>
+
+    <div class="content">
+        <p>
+            <strong id="name-body">This Company</strong> is a technology incubator focused on developing and validating business-to-business software solutions. We build proprietary automation tools and data-driven applications to solve efficiency problems in niche vertical markets.
+        </p>
+
+        <p>Our team is currently operating in stealth mode while developing our core intellectual property and prototype product lines. We focus on scalability, security, and cloud-native architecture.</p>
+        
+        <div class="contact-box">
+            <strong>Business Inquiries:</strong><br>
+            Please direct all partnership and press inquiries to our administrative team:<br>
+            <br>
+            <a id="email-protect" href="#">Loading contact info...</a>
+        </div>
+    </div>
+
+    <footer>
+        <!-- JS will inject Year and Name here -->
+        <span id="copyright-text"></span><br>
+        Headquartered in the United States.
+    </footer>
+
+    <!-- CONFIGURATION SCRIPT -->
+    <script>
+        (function() {
+            // ==========================================
+            // EDIT YOUR DETAILS HERE
+            // ==========================================
+            const config = {
+                companyName: "Machinera",
+                domain: "machinera.com",
+                emailUser: "contact"
+            };
+            // ==========================================
+
+            // 1. Inject Company Name
+            document.title = config.companyName + " | Technology & Research";
+            document.getElementById("name-header").innerText = config.companyName;
+            document.getElementById("name-body").innerText = config.companyName;
+
+            // 2. Inject Footer
+            const currentYear = new Date().getFullYear();
+            document.getElementById("copyright-text").innerHTML = 
+                "&copy; " + currentYear + " " + config.companyName + ". All rights reserved.";
+
+            // 3. ADVANCED ANTI-SCRAPE (Click-to-Reveal)
+            const link = document.getElementById("email-protect");
+            
+            // Set initial state
+            link.innerText = "Click to reveal contact email";
+            link.href = "javascript:void(0)"; // Doing nothing prevents jumping to top
+            link.style.borderBottom = "1px dashed var(--accent)"; // Visual cue
+
+            // Only generate the email when the user interacts
+            link.onclick = function(e) {
+                e.preventDefault(); // Stop default link behavior for a moment
+                
+                const emailAddress = config.emailUser + "@" + config.domain;
+                
+                // Update the link to be a real mailto
+                link.innerText = emailAddress;
+                link.href = "mailto:" + emailAddress;
+                link.style.borderBottom = "1px solid #ccc"; // Reset style
+                
+                // Optional: Automatically open the email client
+                window.location.href = "mailto:" + emailAddress;
+            };
+        })();
+    </script>
+
+</body>
+</html>
